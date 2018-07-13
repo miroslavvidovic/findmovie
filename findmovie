@@ -5,23 +5,25 @@
 #   author:    Miroslav Vidovic (miroslav-vidovic@hotmail.com)
 #   file:      findmovie
 #   created:   08.07.2018.-20:42:30
-#   revision:
 #   version:   1.0
 # -----------------------------------------------------------------------------
 # Requirements:
-#   curl,
-#
+#   curl, mo (https://github.com/tests-always-included/mo),
+#   bash-spinner (https://github.com/tlatsas/bash-spinner)
 # Description:
-#
-# Usage:
-#
+#   Get movie information from imdb (www.imdb.com) by web scraping
 # -----------------------------------------------------------------------------
 # Script:
 
 SCRIPTNAME=$(basename "$0")
 
+source ./bash-spinner/spinner.sh
+
 help_message(){
-  echo "Example :
+  echo "
+  Please only pass one movie or use \"NAME OF MOVIE\" for spaces.
+
+  Example :
          $SCRIPTNAME \"Back to the future part III\"
          $SCRIPTNAME \"Predator\"
     "
@@ -100,14 +102,20 @@ get_movie_data(){
 
 main(){
   # Check the number of input arguments
-  if [[ $# -ne 1 ]]; then
-    echo "Too many arguments: Please only pass one movie or use \"NAME OF MOVIE\" for spaces." >&2
+  if [[ $# -lt 1 ]]; then
+    echo "No input provided."
+    help_message
+    exit 1
+  elif [[ $# -gt 1 ]]; then
+    echo "Too many arguments."
     help_message
     exit 1
   fi
 
+  start_spinner "fetching data "
   get_id "$@"
   get_movie_data
+  stop_spinner $?
 }
 
 main "$@"
