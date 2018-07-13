@@ -1,3 +1,5 @@
+
+
 Title:              {{TITLE}}
 Year:               {{YEAR}}
 IMDB Rating:        {{RATING}}
@@ -9,3 +11,4 @@ Release Date:       {{DATE}}
 Content Rating:     {{CONTENTR}}
 Directed By:        {{DIRECTOR}}
 Actors:             {{ACTORS}}
+
