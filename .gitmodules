@@ -1,0 +1,6 @@
+[submodule "bash-spinner"]
+	path = bash-spinner
+	url = https://github.com/tlatsas/bash-spinner
+[submodule "mo"]
+	path = mo
+	url = https://github.com/tests-always-included/mo
