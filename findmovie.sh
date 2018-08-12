@@ -2,10 +2,11 @@
 
 # -----------------------------------------------------------------------------
 # Info:
-#   author:    Miroslav Vidovic (miroslav-vidovic@hotmail.com)
-#   file:      findmovie
-#   created:   08.07.2018.-20:42:30
-#   version:   1.0
+#   Author:         Miroslav Vidovic
+#   Email:          miroslav-vidovic@hotmail.com
+#   File:           findmovie.sh
+#   Created date:   08.07.2018.
+#   Latest update:  12.08.2018.
 # -----------------------------------------------------------------------------
 # Requirements:
 #   curl, mo (https://github.com/tests-always-included/mo),
@@ -112,7 +113,7 @@ main(){
     exit 1
   fi
 
-  start_spinner "fetching data "
+  start_spinner "Fetching movie data "
   get_id "$@"
   get_movie_data
   stop_spinner $?
